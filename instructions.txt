@@ -6,4 +6,10 @@
 
 
 ---------------------------Run---------------------------
+*** replace this in package.json:
+    "scripts": {
+      "start": "node server",
+      "dev": "nodemon server"
+    }
+    
 # npm run dev / nodemon server_file
