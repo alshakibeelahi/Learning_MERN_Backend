@@ -1,0 +1,30 @@
+{
+  "name": "learning_mern_backend",
+  "version": "1.0.0",
+  "description": "Learning Express Js and MongoDB for internship tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alshakibeelahi/Learning_MERN_Backend.git"
+  },
+  "keywords": [
+    "expressjs",
+    "mongodb"
+  ],
+  "author": "AL SHAKIB E ELAHI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alshakibeelahi/Learning_MERN_Backend/issues"
+  },
+  "homepage": "https://github.com/alshakibeelahi/Learning_MERN_Backend#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

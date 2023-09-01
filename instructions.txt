@@ -1,0 +1,9 @@
+----------------------NPM Commands-----------------------
+# npm init / npm init -y(no questionaries)
+# npm i express
+# npm i nodemon -D (-D stands for development mode)
+# npm i mongoose
+
+
+---------------------------Run---------------------------
+# npm run dev / nodemon server_file
