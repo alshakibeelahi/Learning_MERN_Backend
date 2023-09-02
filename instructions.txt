@@ -3,6 +3,9 @@
 # npm i express
 # npm i nodemon -D (-D stands for development mode)
 # npm i mongoose
+# npm i cors 
+# npm i body-parser (to parse body)
+# npm i multer -(to work with file)
 
 
 ---------------------------Run---------------------------
