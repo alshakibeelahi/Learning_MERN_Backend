@@ -21,3 +21,30 @@ exports.getAll = async (e) => {
     return null;
   }
 };
+exports.getById = async (id) => {
+  try {
+    const user = await User.findById(id);
+    console.log(id, user)
+    return user;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
+exports.updateById = async  (id, document, options) =>{
+  try {
+    const user = await User.findByIdAndUpdate(id, document, options)
+    return user
+  } catch (error) {
+    console.log(error)
+  }
+}
+exports.deleteById = async (id) =>{
+  try {
+    const user = await User.findByIdAndDelete(id)
+    console.log(user)
+    return user
+  } catch (error) {
+    console.log(error)
+  }
+}
