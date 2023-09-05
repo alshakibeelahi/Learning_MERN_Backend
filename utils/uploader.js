@@ -1,3 +1,7 @@
+const multer = require("multer");
+const path = require("path");
+const createError = require("http-errors");
+
 function uploader(subFolderPath, allowedExtension, maxSize, errorMsg) {
   const UPLOADS_FOLDER = `${__dirname}/../public/uploads/${subFolderPath}/`;
 
@@ -38,3 +42,5 @@ function uploader(subFolderPath, allowedExtension, maxSize, errorMsg) {
 
   return upload;
 }
+
+module.exports =uploader

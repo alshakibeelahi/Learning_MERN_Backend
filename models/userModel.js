@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
     trim: true
   },
   password:{
-    type: Boolean,
+    type: String,
     required: false,
     trim: true
   },
@@ -25,9 +25,6 @@ const userSchema = new mongoose.Schema({
     enum:['admin', 'employee'],
     dafault:'admin'
   }
-},
-{
-  timeStamps: true
 })
 
 const User = mongoose.model("User", userSchema);

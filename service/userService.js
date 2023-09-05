@@ -11,6 +11,7 @@ exports.addUser = async (userInfo) => {
     return null;
   }
 };
+
 exports.getAll = async (e) => {
   try {
     const users = await User.find();

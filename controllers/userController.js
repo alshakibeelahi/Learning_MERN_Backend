@@ -1,11 +1,24 @@
 const { addUser, getAll, getById, deleteById, updateById } = require('../service/userService')
+const bcrypt = require("bcrypt");
+const { unlink } = require("fs");
+const path = require("path");
 //Working with files
 
 const createUser = async (req, res) => {
-
   try {
-    const user = addUser(req.body)
-    res.status(200).json({ message: "add successfull" })
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const data = {
+      ...req.body,
+      image: req.files[0].filename,
+      password: hashedPassword,
+    }
+    const user = await addUser(data)
+    if(user!=null){
+      res.status(200).json({ message: "add successfull" })
+    }
+    else{
+      res.status(500).json({message:"something went wrong"})
+    }
     // console.log(req.body)
   } catch (error) {
     console.log(error)
