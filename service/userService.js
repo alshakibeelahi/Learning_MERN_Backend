@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const userSchema = require('../models/userModel');
-const User = mongoose.model("User", userSchema);
+const User = require('../models/userModel')
 
 exports.addUser = async (userInfo) => {
   try {
