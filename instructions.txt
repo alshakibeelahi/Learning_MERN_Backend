@@ -6,10 +6,11 @@
 # npm i cors 
 # npm i body-parser (to parse body)
 # npm i multer -(to work with file)
-npm i bcrypt http-errors
-npm install cookie-parser
-npm install express-validator
-npm install jsonwebtoken
+# npm i bcrypt http-errors
+# npm install cookie-parser
+# npm install express-validator
+# npm install jsonwebtoken
+# npm install nodemailer
 
 ---------------------------Run---------------------------
 *** replace this in package.json:
