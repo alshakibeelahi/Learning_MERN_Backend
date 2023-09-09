@@ -6,10 +6,10 @@ const {imageUploads} = require('../middleware/users/imageUploads')
 const {addUserValidators,addUserValidationHandler} = require('../middleware/users/userValidation')
 const {userAuthentication} = require('../middleware/users/userAuthentication')
 
-router.post('/adduser', userAuthentication,imageUploads,addUserValidators,addUserValidationHandler, createUser)
-router.get('/getusers', userAuthentication, getUser)
-router.get('/getuser/:id', userAuthentication, getUserById)
-router.put('/updateuser/:id', userAuthentication, updateUser)
-router.delete('/deleteuser/:id', userAuthentication, deleteUser)
+router.post('/', userAuthentication,imageUploads,addUserValidators,addUserValidationHandler, createUser)
+router.get('/', userAuthentication, getUser)
+router.get('/:id', userAuthentication, getUserById)
+router.put('/:id', userAuthentication, updateUser)
+router.delete('/:id', userAuthentication, deleteUser)
 
 module.exports = router

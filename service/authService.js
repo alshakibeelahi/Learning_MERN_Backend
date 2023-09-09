@@ -18,11 +18,11 @@ exports.login = async (data)=>{
           username: user.username,
           role:user.role
         }
-        const token = jwt.sign(userObject, process.env.JWT_SECRET,{
+        const accessToken = jwt.sign(userObject, process.env.JWT_SECRET,{
           expiresIn: process.env.JWT_EXPIRES_AT
         });
         
-        return {token, user}
+        return {accessToken, user}
       }
       else{
         throw createError('User not found')

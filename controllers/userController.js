@@ -5,6 +5,7 @@ const path = require("path");
 //Working with files
 
 const createUser = async (req, res) => {
+  console.log(req.body)
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const data = {

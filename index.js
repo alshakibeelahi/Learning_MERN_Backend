@@ -38,7 +38,7 @@ app.get('/', (req, res) => {
 
 // User CRUD routes
 const user_routes = require('./routes/userRoutes');
-app.use('/user', user_routes);
+app.use('/users', user_routes);
 
 // Authentication routes
 const auth_routes = require('./routes/authRoutes');

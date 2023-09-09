@@ -6,7 +6,7 @@ const checkUser = async (req, res) => {
   try {
     const user = await login(req.body)
     if(user!=null){
-      res.cookie(process.env.COOKIE_SECRET, user.token, {
+      res.cookie(process.env.COOKIE_SECRET, user.accessToken, {
         maxAge: process.env.JWT_EXPIRES_AT,
         httpOnly: true,
         signed: true,
