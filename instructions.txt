@@ -11,6 +11,7 @@
 # npm install express-validator
 # npm install jsonwebtoken
 # npm install nodemailer
+npm i swagger-ui-express swagger-jsdoc
 
 ---------------------------Run---------------------------
 *** replace this in package.json:

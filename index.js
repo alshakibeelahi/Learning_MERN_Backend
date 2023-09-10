@@ -3,7 +3,7 @@ require('dotenv').config();
 const app = express();
 
 // Enable CORS
-const cors = require('cors'); 
+const cors = require('cors');
 app.use(cors({
   origin: '*'
 }));
@@ -12,7 +12,6 @@ app.use(express.json()); //returns a JSON object
 
 // Connection to Database
 const mongoose = require('mongoose');
-
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -20,12 +19,51 @@ mongoose.connect(process.env.MONGODB_URI, {
   console.log(`Connected to MongoDB`);
 })
 
-const port_number = process.env.FRONT_END_PORT_NO || 3000;
+//running server on backend port
+const port_number = process.env.BACKEND_PORT_NO || 3000;
 app.listen(port_number, () => console.log(`Server is running on port: ${port_number}`));
 
 //making folder publicly accessable through link
 const path = require('path')
 app.use(express.static(path.join(__dirname, 'public')))
+
+//connecting Swagger
+const swaggerJsdoc = require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express")
+const options = {
+  definition: {
+    openapi: "3.1.0",
+    info: {
+      title: "Express API with Swagger",
+      version: "0.1.0",
+      description:
+        "MERN Stack application made with Express and documented with Swagger",
+    },
+    servers: [
+      {
+        url: `http://localhost:${process.env.BACKEND_PORT_NO}`,
+      },
+    ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT",
+        },
+      },
+    },
+  },
+  apis: ["./routes/*.js"],
+};
+
+
+const specs = swaggerJsdoc(options);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
+);
 
 //parse cookie
 const cookieParser = require('cookie-parser')
@@ -45,7 +83,7 @@ const auth_routes = require('./routes/authRoutes');
 app.use('/auth', auth_routes);
 
 //error handler
-const {notFoundHandler, errorHandler} = require('./middleware/common/errorHandler')
+const { notFoundHandler, errorHandler } = require('./middleware/common/errorHandler')
 //---> for not found
 app.use(notFoundHandler)
 //---> for error handing
