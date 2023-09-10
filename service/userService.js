@@ -27,8 +27,7 @@ exports.getById = async (id) => {
     console.log(id, user)
     return user;
   } catch (err) {
-    console.error(err);
-    return null;
+    return res.send(`couldnt find user with id ${id}`)
   }
 };
 exports.updateById = async  (id, document, options) =>{

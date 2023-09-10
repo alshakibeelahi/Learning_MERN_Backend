@@ -5,7 +5,6 @@ const path = require("path");
 //Working with files
 
 const createUser = async (req, res) => {
-  console.log(req.body)
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const data = {
@@ -29,17 +28,23 @@ const getUser = async (req, res) => {
 
   try {
     const users = await getAll()
+    users.forEach(user => {
+      const url = `http://localhost:3000/uploads/users/${user.image}`;
+      user.image = url;
+    });
     res.status(200).json({ users })
-    // console.log(req.body)
   } catch (error) {
     console.log(error)
   }
 }
 
 const getUserById = async (req, res) => {
+  console.log('hittted'+req.params.id)
   try {
     const id = req.params.id
     const user = await getById(id)
+    const url = `http://localhost:3000/uploads/users/`+user.image
+    user.image=url
     res.status(200).json({ user })
   } catch (err) {
 
