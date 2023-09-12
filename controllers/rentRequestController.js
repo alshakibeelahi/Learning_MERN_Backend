@@ -23,10 +23,6 @@ const getRentRequest = async (req, res) => {
 
   try {
     const rentRequests = await getAll()
-    rentRequests.forEach(rentRequest => {
-      const url = `http://localhost:3000/uploads/rentRequests/${rentRequest.image}`;
-      rentRequest.image = url;
-    });
     res.status(200).json({ rentRequests })
   } catch (error) {
     console.log(error)
@@ -38,8 +34,6 @@ const getRentRequestById = async (req, res) => {
   try {
     const id = req.params.id
     const rentRequest = await getRequestById(id)
-    const url = `http://localhost:3000/uploads/rentRequests/`+rentRequest.image
-    rentRequest.image=url
     res.status(200).json({ rentRequest })
   } catch (err) {
 

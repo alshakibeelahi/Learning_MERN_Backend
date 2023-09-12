@@ -14,7 +14,7 @@ exports.addRentRequest = async (rentRentRequestInfo) => {
 
 exports.getAll = async (e) => {
   try {
-    const rentRentRequests = await RentRequest.find();
+    const rentRentRequests = await RentRequest.find().populate('carId');
     return rentRentRequests;
   } catch (err) {
     console.error(err);
@@ -23,7 +23,7 @@ exports.getAll = async (e) => {
 };
 exports.getRequestById = async (id) => {
   try {
-    const rentRentRequest = await RentRequest.findById(id);
+    const rentRentRequest = await RentRequest.findById(id).populate('carId');
     console.log(id, rentRentRequest)
     return rentRentRequest;
   } catch (err) {

@@ -82,11 +82,17 @@ app.use('/users', user_routes);
 const auth_routes = require('./routes/authRoutes');
 app.use('/auth', auth_routes);
 
+//car routes
 const car_routes = require('./routes/carRoutes');
 app.use('/cars', car_routes);
 
+//rent routes
 const rentRequest_routes = require('./routes/rentRequestRoutes');
 app.use('/rentRequests', rentRequest_routes);
+
+//quiz routes
+const quiz_routes = require('./routes/quizRoutes');
+app.use('/quiz', quiz_routes);
 
 //error handler
 const { notFoundHandler, errorHandler } = require('./middleware/common/errorHandler')
