@@ -14,7 +14,7 @@ exports.addQuiz = async (quizInfo) => {
 
 exports.getAllQuiz = async (e) => {
   try {
-    const quizs = await Quiz.find({},{answer}).exec();
+    const quizs = await Quiz.find().exec();
     return quizs;
   } catch (err) {
     console.error(err);

@@ -94,6 +94,28 @@ app.use('/rentRequests', rentRequest_routes);
 const quiz_routes = require('./routes/quizRoutes');
 app.use('/quiz', quiz_routes);
 
+//amenities routes
+const amenities_routes = require('./routes/amenitiesRoutes');
+app.use('/amenities', amenities_routes);
+
+//resident routes
+const resident_routes = require('./routes/residentRoutes');
+app.use('/resident', resident_routes);
+
+//fibonacci routes
+// app.use('/fibonacci', (req, res)=>{
+//   function generateFibonacci(n) {
+//     const fibonacci = [0, 1]; 
+//     for (let i = 2; i < n; i++) {
+//       const nextNumber = fibonacci[i - 1] + fibonacci[i - 2];
+//       fibonacci.push(nextNumber);
+//     }
+//     return fibonacci;
+//   }
+//     const fibonacciSequence = generateFibonacci(req.body.range);
+//     res.status(200).json({fibonacciSequence})
+// });
+
 //error handler
 const { notFoundHandler, errorHandler } = require('./middleware/common/errorHandler')
 //---> for not found
